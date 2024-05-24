@@ -1,7 +1,21 @@
+import { Route, Routes } from 'react-router-dom';
+import { HomePage } from './pages/HomePage/HomePage';
+import { SignUpPage } from './pages/SignUpPage/SignUpPage';
+import { SignInPage } from './pages/SignInPage/SignInPage';
+import { RestorePasswordPage } from './pages/RestorePasswordPage/RestorePasswordPage';
+import { SharedLayout } from './pages/SharedLayout/SharedLayout';
+
 function App() {
   return (
     <>
-      <div>Hello World!</div>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/restorepassword" element={<RestorePasswordPage />} />
+        </Route>
+      </Routes>
     </>
   );
 }
