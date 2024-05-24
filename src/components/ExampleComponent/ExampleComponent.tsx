@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { ExampleForm } from './ExamleComponent.styles';
+import { useTranslation } from 'react-i18next';
 
 const schema = yup
   .object()
@@ -17,6 +18,7 @@ type Inputs = {
 };
 
 export const ExampleComponent = () => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -33,14 +35,26 @@ export const ExampleComponent = () => {
     <>
       <ExampleForm onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <input type="text" {...register('name')} placeholder="Name" />
+          <label htmlFor="user-name">{t('exampleFormText.nameInput')}</label>
+          <input
+            type="text"
+            {...register('name')}
+            placeholder="Name"
+            id="user-name"
+          />
           {errors.name && <p>{errors.name.message}</p>}
         </div>
         <div>
-          <input type="email" {...register('email')} placeholder="Email" />
+          <label htmlFor="user-email">{t('exampleFormText.emailInput')}</label>
+          <input
+            type="email"
+            {...register('email')}
+            placeholder="Email"
+            id="user-email"
+          />
           {errors.email && <p>{errors.email.message}</p>}
         </div>
-        <button type="submit"></button>
+        <button type="submit">{t('exampleFormText.submitButton')}</button>
       </ExampleForm>
     </>
   );
