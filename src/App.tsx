@@ -1,9 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
-import { HomePage } from './pages/HomePage/HomePage';
-import { SignUpPage } from './pages/SignUpPage/SignUpPage';
-import { SignInPage } from './pages/SignInPage/SignInPage';
-import { RestorePasswordPage } from './pages/RestorePasswordPage/RestorePasswordPage';
 import { SharedLayout } from './pages/SharedLayout/SharedLayout';
+import { lazy } from 'react';
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
+const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
+const RestorePasswordPage = lazy(
+  () => import('./pages/RestorePasswordPage/RestorePasswordPage'),
+);
+const PrivacyPolicyPage = lazy(
+  () => import('./pages/PrivacyPolicyPage/PrivacyPolicyPage'),
+);
+const TermsOfUsePage = lazy(
+  () => import('./pages/TermsOfUsePage/TermsOfUsePage'),
+);
 
 function App() {
   return (
@@ -14,6 +23,8 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/restore-password" element={<RestorePasswordPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-use" element={<TermsOfUsePage />} />
         </Route>
       </Routes>
     </>

@@ -1,6 +1,6 @@
 import { ExampleComponent } from 'src/components/ExampleComponent/ExampleComponent';
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <div>
       HomePage
@@ -8,3 +8,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;
