@@ -1,3 +1,10 @@
+import { ExampleComponent } from 'src/components/ExampleComponent/ExampleComponent';
+
 export const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      HomePage
+      <ExampleComponent />
+    </div>
+  );
 };
