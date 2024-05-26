@@ -1,17 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
-import { SharedLayout } from './pages/SharedLayout/SharedLayout';
 import { lazy } from 'react';
-const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
-const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
-const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
+import { SharedLayout } from './pages/sharedLayout/sharedLayout';
+const HomePage = lazy(() => import('./pages/homePage/homePage'));
+const SignUpPage = lazy(() => import('./pages/signUpPage/signUpPage'));
+const SignInPage = lazy(() => import('./pages/signInPage/signInPage'));
 const RestorePasswordPage = lazy(
-  () => import('./pages/RestorePasswordPage/RestorePasswordPage'),
+  () => import('./pages/restorePasswordPage/restorePasswordPage'),
 );
 const PrivacyPolicyPage = lazy(
-  () => import('./pages/PrivacyPolicyPage/PrivacyPolicyPage'),
+  () => import('./pages/privacyPolicyPage/privacyPolicyPage'),
 );
 const TermsOfUsePage = lazy(
-  () => import('./pages/TermsOfUsePage/TermsOfUsePage'),
+  () => import('./pages/termsOfUsePage/termsOfUsePage'),
 );
 
 function App() {

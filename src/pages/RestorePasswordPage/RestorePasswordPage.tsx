@@ -1,5 +1,5 @@
 const RestorePasswordPage = () => {
-  return <div>RestorePasswordPage</div>;
+  return <div></div>;
 };
 
 export default RestorePasswordPage;

@@ -1,5 +1,5 @@
 const PrivacyPolicyPage = () => {
-  return <div>PrivacyPolicyPage</div>;
+  return <div></div>;
 };
 
 export default PrivacyPolicyPage;

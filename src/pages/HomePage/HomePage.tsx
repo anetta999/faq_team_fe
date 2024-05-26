@@ -1,9 +1,8 @@
-import { ExampleComponent } from 'src/components/ExampleComponent/ExampleComponent';
+import { ExampleComponent } from 'src/components/exampleComponent/exampleComponent';
 
 const HomePage = () => {
   return (
     <div>
-      HomePage
       <ExampleComponent />
     </div>
   );

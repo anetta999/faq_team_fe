@@ -1,5 +1,5 @@
 export const TermsOfUsePage = () => {
-  return <div>TermsOfUsePage</div>;
+  return <div></div>;
 };
 
 export default TermsOfUsePage;

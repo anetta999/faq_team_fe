@@ -1,8 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { ExampleForm } from './ExamleComponent.styles';
 import { useTranslation } from 'react-i18next';
+import { ExampleForm } from './examleComponent.styles';
 
 const schema = yup
   .object()

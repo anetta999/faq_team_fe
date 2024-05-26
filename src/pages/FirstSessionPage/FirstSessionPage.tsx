@@ -1,5 +1,5 @@
 const FirstSessionPage = () => {
-  return <div>FirstSessionPage</div>;
+  return <div></div>;
 };
 
 export default FirstSessionPage;
