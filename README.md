@@ -9,7 +9,6 @@ This repository contains the frontend for the FAQ Team project.
 - [Running the Project](#running-the-project)
 - [Folder Structure](#folder-structure)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Prerequisites
 
