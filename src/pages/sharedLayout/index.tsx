@@ -1,6 +1,6 @@
+import { NavBar } from 'components/navBar';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { NavBar } from 'src/components/navBar/navBar';
 
 export const SharedLayout = () => {
   return (

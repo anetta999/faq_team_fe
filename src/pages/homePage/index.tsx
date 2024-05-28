@@ -1,4 +1,4 @@
-import { ExampleComponent } from 'src/components/exampleComponent/exampleComponent';
+import { ExampleComponent } from 'components/exampleComponent';
 
 const HomePage = () => {
   return (
