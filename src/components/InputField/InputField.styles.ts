@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { InputProps } from 'src/components/InputField/types';
+import { InputProps } from 'src/components/inputField/types';
 
 export const Container = styled.div`
   display: flex;
