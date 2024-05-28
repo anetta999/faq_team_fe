@@ -3,7 +3,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { ExampleForm } from './styles';
-
+import EyeIcon from 'src/assets/icons/iconEye';
+import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
+import LeftArrowIcon from 'src/assets/icons/iconLeftArrow';
+import RightArrowIcon from 'src/assets/icons/iconRightArrow';
 const schema = yup
   .object()
   .shape({
@@ -44,6 +47,10 @@ export const ExampleComponent = () => {
           />
           {errors.name && <p>{errors.name.message}</p>}
         </div>
+        <EyeIcon />
+        <EyeCloseIcon />
+        <LeftArrowIcon />
+        <RightArrowIcon />
         <div>
           <label htmlFor="user-email">{t('exampleFormText.emailInput')}</label>
           <input
