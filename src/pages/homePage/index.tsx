@@ -1,10 +1,11 @@
 import { ExampleComponent } from 'components/exampleComponent';
+import { HomeSection } from './styles';
 
 const HomePage = () => {
   return (
-    <div>
+    <HomeSection>
       <ExampleComponent />
-    </div>
+    </HomeSection>
   );
 };
 
