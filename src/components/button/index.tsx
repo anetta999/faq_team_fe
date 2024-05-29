@@ -1,5 +1,5 @@
-import { buttonProps } from './buttonProps';
 import { StyledButton } from './buttonStyles';
+import { buttonProps } from './types';
 
 export const Button = ({
   variant,

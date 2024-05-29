@@ -1,3 +1,5 @@
+import { Container } from './styles';
+
 type Props = {
   children: React.ReactElement;
   className?: string;
@@ -6,7 +8,7 @@ type Props = {
 export const Section = ({ className, children }: Props) => {
   return (
     <section className={className}>
-      <div>{children}</div>
+      <Container>{children}</Container>
     </section>
   );
 };
