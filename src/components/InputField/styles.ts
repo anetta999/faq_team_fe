@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { InputProps } from 'src/components/inputField/types';
+import { Theme } from 'src/styles/Theme';
 
 export const Container = styled.div`
   display: flex;
@@ -11,26 +12,29 @@ export const Container = styled.div`
   height: 72px;
 `;
 
-export const Label = styled.label`
+export const Label = styled.label<{ theme?: Theme }>`
   font-size: 16px;
-  color: #000;
+  color: ${({ theme }) => theme.colors.black};
 `;
 
-export const Input = styled.input<InputProps>`
+export const Input = styled.input<
+  { hasError: boolean; theme?: Theme } & InputProps
+>`
   width: 100%;
   padding: 8px;
   border-radius: 8px;
   border-width: 1px;
   border: solid;
-  border-color: ${props => (props.hasError ? 'red' : '#ccc')};
+  border-color: ${({ hasError, theme }) =>
+    hasError ? theme?.colors.error_red : theme?.colors.border};
   outline: none;
 
   &:focus {
-    border-color: #000;
+    border-color: ${({ theme }) => theme.colors.black};
   }
 `;
 
-export const Error = styled.span`
-  color: red;
+export const Error = styled.span<{ theme?: Theme }>`
+  color: ${({ theme }) => theme.colors.error_red};
   font-size: 12px;
 `;

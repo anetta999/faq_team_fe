@@ -1,4 +1,4 @@
-import { Response, User } from '../types';
+import { Response, User } from 'src/redux/types';
 import { apiSlice } from './apiSlice';
 const USERS_URL = '/api/user';
 const CARDS_URL = '/api/cards';
