@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { ButtonVariant, buttonProps } from './types';
+import { fontSize } from 'src/constants/font-size.consts';
 
 export const StyledButton = styled.button<buttonProps>`
   background-color: ${props =>
@@ -15,8 +16,8 @@ export const StyledButton = styled.button<buttonProps>`
       props.variant === ButtonVariant.Black
         ? props.theme.colors.black
         : props.theme.colors.white};
-  padding: 16px auto;
-  font-size: 16px;
+  padding: 16px;
+  font-size: ${fontSize.buttonFontSize};
   cursor: pointer;
   border-radius: 12px;
 `;

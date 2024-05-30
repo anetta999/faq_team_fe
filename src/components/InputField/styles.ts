@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { InputProps } from 'src/components/inputField/types';
 import { Theme } from 'src/styles/Theme';
+import { fontSize } from 'src/constants/font-size.consts';
 
 export const Container = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const Container = styled.div`
 `;
 
 export const Label = styled.label<{ theme?: Theme }>`
-  font-size: 16px;
+  font-size: ${fontSize.labelFontSize};
   color: ${({ theme }) => theme.colors.black};
 `;
 
@@ -36,5 +37,5 @@ export const Input = styled.input<
 
 export const Error = styled.span<{ theme?: Theme }>`
   color: ${({ theme }) => theme.colors.error_red};
-  font-size: 12px;
+  font-size: ${fontSize.errorFontSize};
 `;
