@@ -34,14 +34,9 @@ import { theme } from 'src/styles/Theme';
 export const globalStyles = css`
   body {
     overflow: auto;
-    font-family: 'DM Sans', sans-serif;
+    font-family: ${theme.fontNames.dmSans}, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
   }
 
   h1,
@@ -86,7 +81,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.dmSans};
     src: url(${dmSansRegular}), url(${dmSansRegularSecond});
-    font-weight: 400;
+    font-weight: ${theme.fontWeight.regular};
     font-display: swap;
     font-style: normal;
   }
@@ -94,7 +89,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.dmSans};
     src: url(${dmSansMedium}), url(${dmSansMediumSecond});
-    font-weight: 500;
+    font-weight: ${theme.fontWeight.medium};
     font-display: swap;
     font-style: normal;
   }
@@ -102,7 +97,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.dmSans};
     src: url(${dmSansBold}), url(${dmSansBoldSecond});
-    font-weight: 700;
+    font-weight: ${theme.fontWeight.bold};
     font-display: swap;
     font-style: normal;
   }
@@ -110,7 +105,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.playfairDisplay};
     src: url(${playfairDisplayRegular}), url(${playfairDisplayRegularSecond});
-    font-weight: 400;
+    font-weight: ${theme.fontWeight.regular};
     font-display: swap;
     font-style: normal;
   }
@@ -118,7 +113,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.playfairDisplay};
     src: url(${playfairDisplayMedium}), url(${playfairDisplayMediumSecond});
-    font-weight: 500;
+    font-weight: ${theme.fontWeight.medium};
     font-display: swap;
     font-style: normal;
   }
@@ -126,7 +121,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.playfairDisplay};
     src: url(${playfairDisplaySemiBold});
-    font-weight: 600;
+    font-weight: ${theme.fontWeight.semibold};
     font-display: swap;
     font-style: normal;
   }
@@ -134,7 +129,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.playfairDisplay};
     src: url(${playfairDisplayBold}), url(${playfairDisplayBoldSecond});
-    font-weight: 700;
+    font-weight: ${theme.fontWeight.bold};
     font-display: swap;
     font-style: normal;
   }
@@ -142,7 +137,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.playfairDisplaySC};
     src: url(${playfairDisplaySCBold}), url(${playfairDisplaySCBoldSecond});
-    font-weight: 700;
+    font-weight: ${theme.fontWeight.bold};
     font-display: swap;
     font-style: normal;
   }
@@ -150,7 +145,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.inter};
     src: url(${interRegular}), url(${interRegularSecond});
-    font-weight: 400;
+    font-weight: ${theme.fontWeight.regular};
     font-display: swap;
     font-style: normal;
   }
@@ -158,7 +153,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.inter};
     src: url(${interSemiBold}), url(${interSemiBoldSecond});
-    font-weight: 600;
+    font-weight: ${theme.fontWeight.semibold};
     font-display: swap;
     font-style: normal;
   }
@@ -166,7 +161,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.quicksand};
     src: url(${quicksandMedium}), url(${quicksandMediumSecond});
-    font-weight: 500;
+    font-weight: ${theme.fontWeight.medium};
     font-display: swap;
     font-style: normal;
   }
@@ -174,7 +169,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.sourceSerifPro};
     src: url(${sourceSerifProRegular}), url(${sourceSerifProRegularSecond});
-    font-weight: 400;
+    font-weight: ${theme.fontWeight.regular};
     font-display: swap;
     font-style: normal;
   }
@@ -182,7 +177,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.sourceSerifPro};
     src: url(${sourceSerifProSemiBold}), url(${sourceSerifProSemiBoldSecond});
-    font-weight: 600;
+    font-weight: ${theme.fontWeight.semibold};
     font-display: swap;
     font-style: normal;
   }
@@ -190,7 +185,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.spaceGrotesk};
     src: url(${spaceGroteskMedium}), url(${spaceGroteskMediumSecond});
-    font-weight: 500;
+    font-weight: ${theme.fontWeight.medium};
     font-display: swap;
     font-style: normal;
   }
@@ -198,7 +193,7 @@ export const globalStyles = css`
   @font-face {
     font-family: ${theme.fontNames.urbanist};
     src: url(${urbanistRegular}), url(${urbanistRegularSecond});
-    font-weight: 500;
+    font-weight: ${theme.fontWeight.medium};
     font-display: swap;
     font-style: normal;
   }

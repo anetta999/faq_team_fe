@@ -24,6 +24,13 @@ type FontSize = {
   lg: string;
 };
 
+type FontWeight = {
+  regular: string;
+  medium: string;
+  semibold: string;
+  bold: string;
+};
+
 type FontNames = {
   urbanist: string;
   spaceGrotesk: string;
@@ -41,6 +48,7 @@ export type Theme = {
   breakpoint: Breakpoint;
   fontSize: FontSize;
   fontNames: FontNames;
+  fontWeight: FontWeight;
 };
 
 export const theme: Theme = {
@@ -69,6 +77,12 @@ export const theme: Theme = {
     sm: '14px',
     md: '16px',
     lg: '18px',
+  },
+  fontWeight: {
+    regular: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
   },
   fontNames: {
     urbanist: 'Urbanist',
