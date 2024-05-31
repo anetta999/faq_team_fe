@@ -2,11 +2,15 @@ import { useState } from 'react';
 import * as styles from 'src/components/inputField/styles';
 import { InputFieldInt } from 'src/components/inputField/types';
 
-const InputField = ({ label, placeholder, validate }: InputFieldInt) => {
+const InputField = ({
+  label,
+  placeholder,
+  validate,
+}: InputFieldInt): JSX.Element => {
   const [value, setValue] = useState<string>('');
   const [error, setError] = useState<string>('');
 
-  const handleBlur = () => {
+  const handleBlur = (): void => {
     if (validate) {
       const validationError = validate(value);
       setError(validationError);
