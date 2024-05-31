@@ -1,4 +1,4 @@
-import { StyledButton } from './buttonStyles';
+import { StyledButton } from './styles';
 import { buttonProps } from './types';
 
 export const Button = ({

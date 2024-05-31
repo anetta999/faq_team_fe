@@ -29,6 +29,7 @@ import spaceGroteskMedium from '../fonts/SpaceGrotesk-Medium.woff';
 import spaceGroteskMediumSecond from '../fonts/SpaceGrotesk-Medium.woff2';
 import urbanistRegular from '../fonts/Urbanist-Regular.woff';
 import urbanistRegularSecond from '../fonts/Urbanist-Regular.woff2';
+import { theme } from 'src/styles/Theme';
 
 export const globalStyles = css`
   body {
@@ -83,7 +84,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'DM Sans';
+    font-family: ${theme.fontNames.dmSans};
     src: url(${dmSansRegular}), url(${dmSansRegularSecond});
     font-weight: 400;
     font-display: swap;
@@ -91,7 +92,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'DM Sans';
+    font-family: ${theme.fontNames.dmSans};
     src: url(${dmSansMedium}), url(${dmSansMediumSecond});
     font-weight: 500;
     font-display: swap;
@@ -99,7 +100,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'DM Sans';
+    font-family: ${theme.fontNames.dmSans};
     src: url(${dmSansBold}), url(${dmSansBoldSecond});
     font-weight: 700;
     font-display: swap;
@@ -107,7 +108,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Playfair Display';
+    font-family: ${theme.fontNames.playfairDisplay};
     src: url(${playfairDisplayRegular}), url(${playfairDisplayRegularSecond});
     font-weight: 400;
     font-display: swap;
@@ -115,7 +116,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Playfair Display';
+    font-family: ${theme.fontNames.playfairDisplay};
     src: url(${playfairDisplayMedium}), url(${playfairDisplayMediumSecond});
     font-weight: 500;
     font-display: swap;
@@ -123,7 +124,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Playfair Display';
+    font-family: ${theme.fontNames.playfairDisplay};
     src: url(${playfairDisplaySemiBold});
     font-weight: 600;
     font-display: swap;
@@ -131,7 +132,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Playfair Display';
+    font-family: ${theme.fontNames.playfairDisplay};
     src: url(${playfairDisplayBold}), url(${playfairDisplayBoldSecond});
     font-weight: 700;
     font-display: swap;
@@ -139,7 +140,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Playfair Display SC';
+    font-family: ${theme.fontNames.playfairDisplaySC};
     src: url(${playfairDisplaySCBold}), url(${playfairDisplaySCBoldSecond});
     font-weight: 700;
     font-display: swap;
@@ -147,7 +148,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Inter';
+    font-family: ${theme.fontNames.inter};
     src: url(${interRegular}), url(${interRegularSecond});
     font-weight: 400;
     font-display: swap;
@@ -155,7 +156,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Inter';
+    font-family: ${theme.fontNames.inter};
     src: url(${interSemiBold}), url(${interSemiBoldSecond});
     font-weight: 600;
     font-display: swap;
@@ -163,7 +164,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Quicksand';
+    font-family: ${theme.fontNames.quicksand};
     src: url(${quicksandMedium}), url(${quicksandMediumSecond});
     font-weight: 500;
     font-display: swap;
@@ -171,7 +172,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Source Serif Pro';
+    font-family: ${theme.fontNames.sourceSerifPro};
     src: url(${sourceSerifProRegular}), url(${sourceSerifProRegularSecond});
     font-weight: 400;
     font-display: swap;
@@ -179,7 +180,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Source Serif Pro';
+    font-family: ${theme.fontNames.sourceSerifPro};
     src: url(${sourceSerifProSemiBold}), url(${sourceSerifProSemiBoldSecond});
     font-weight: 600;
     font-display: swap;
@@ -187,7 +188,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Space Grotesk';
+    font-family: ${theme.fontNames.spaceGrotesk};
     src: url(${spaceGroteskMedium}), url(${spaceGroteskMediumSecond});
     font-weight: 500;
     font-display: swap;
@@ -195,7 +196,7 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Urbanist';
+    font-family: ${theme.fontNames.urbanist};
     src: url(${urbanistRegular}), url(${urbanistRegularSecond});
     font-weight: 500;
     font-display: swap;
