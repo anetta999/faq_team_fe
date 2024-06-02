@@ -2,11 +2,11 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
-import { ExampleForm } from './styles';
 import EyeIcon from 'src/assets/icons/iconEye';
 import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
 import LeftArrowIcon from 'src/assets/icons/iconLeftArrow';
 import RightArrowIcon from 'src/assets/icons/iconRightArrow';
+import { ExampleForm } from './styles';
 const schema = yup
   .object()
   .shape({

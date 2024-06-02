@@ -10,6 +10,8 @@ type Color = {
   error_red: string;
   error_light_red: string;
   green_success: string;
+  error_tablet: string;
+  overlay_black: string;
 };
 
 type Breakpoint = {
@@ -22,6 +24,7 @@ type FontSize = {
   sm: string;
   md: string;
   lg: string;
+  extraLg: string;
 };
 
 type FontWeight = {
@@ -64,6 +67,8 @@ export const theme: Theme = {
     error_red: '#de506f',
     error_light_red: '#ffdfe6',
     green_success: '#36b37e',
+    error_tablet: '#ff4b4b',
+    overlay_black: 'rgba(0, 0, 0, 0.6)',
   },
   transition: {
     main: '250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)',
@@ -77,6 +82,7 @@ export const theme: Theme = {
     sm: '14px',
     md: '16px',
     lg: '18px',
+    extraLg: '28px',
   },
   fontWeight: {
     regular: '400',

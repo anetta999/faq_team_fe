@@ -17,9 +17,10 @@
     "repeatPassword": "Repeat Password*",
     "submitBtn": "Sign Up",
     "signInLink": "Do you have an account?",
-    "signin": "Sign In",
+    "signIn": "Sign In",
     "policyLink": "Privacy Policy",
-    "termsLink": "Terms of Use"
+    "termsLink": "Terms of Use",
+    "google": "Sign Up with Google"
   },
 
   "verificationEmail": {
@@ -89,8 +90,9 @@
     "repeatPassword": "Repeat Password*",
     "forgotPassLink": "Forgot Password?",
     "submitBtn": "Sign In",
-    "signUpLink": "Do you have an account?",
-    "signup": "Sign Up",
+    "signUpLink": "Do you have an account? ",
+    "signUp": "Sign Up",
+    "google": "Sign In with Google",
     "policyLink": "Privacy Policy",
     "termsLink": "Terms of Use"
   },
@@ -134,5 +136,16 @@
   "policy": {
     "title": "Privacy Policy",
     "terms": "Terms & Conditions"
+  },
+
+  "validation": {
+    "email": "Email format is incorrect",
+    "password": "Password format is incorrect",
+    "server": "Email or password incorrect",
+    "credentials": "Please enter your credentials"
+  },
+
+  "loading": {
+    "text": "Loading..."
   }
 }

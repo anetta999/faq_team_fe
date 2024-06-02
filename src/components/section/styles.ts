@@ -15,6 +15,6 @@ export const Container = styled.div<{ theme?: Theme }>`
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
     width: 1440px;
     padding-left: 60px;
-    padding-right: 60px;
+    padding-right: 153px;
   }
 `;
