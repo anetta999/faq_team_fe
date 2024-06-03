@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../button';
 
 export const StyledForm = styled.form<{ theme?: Theme }>`
-  width: 335px;
+  min-width: 335px;
   margin-bottom: 32px;
 
   div {

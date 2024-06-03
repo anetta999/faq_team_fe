@@ -19,6 +19,8 @@ export const SignUpSection = styled(Section)<{ theme?: Theme }>`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
+    height: 100vh;
+    width: 60%;
     padding-bottom: 207px;
     background-image: url(${bgImg});
     background-repeat: no-repeat;
