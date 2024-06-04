@@ -24,10 +24,10 @@
   },
 
   "verificationEmail": {
-    "title": "Verify your email",
+    "title": "Verification email",
     "subtitle": "We have sent an OTP verification code to your email, please enter it here",
     "code": "Code",
-    "expired": "will expire in 00:55",
+    "expired": "will expire in",
     "resend": "Send Again",
     "submitBtn": "Verify"
   },
