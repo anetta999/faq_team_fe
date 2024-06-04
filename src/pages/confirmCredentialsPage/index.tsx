@@ -22,7 +22,7 @@ const ConfirmCredentialsPage = () => {
         <StyledFormContainer>
           <StyledTitle>{t('confirmCredentials.title')}</StyledTitle>
           <StyledFormWrapper>
-            <ConfirmCredentialsForm />
+            <ConfirmCredentialsForm email_value="test@gmail.com" />
           </StyledFormWrapper>
         </StyledFormContainer>
       </StyledContainerFluid>

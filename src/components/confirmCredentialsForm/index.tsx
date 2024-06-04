@@ -2,19 +2,19 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { StyledForm, SubmitBtn, ErrorMsg } from './styles';
-import { Inputs } from './types';
+import { Inputs, Props } from './types';
 import { confirmSchema } from './validation';
 import { ButtonVariant } from '../button/types';
 
-export const ConfirmCredentialsForm = () => {
+export const ConfirmCredentialsForm = ({ email_value }: Props) => {
   const { t } = useTranslation();
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty, isSubmitting },
+    formState: { errors },
   } = useForm<Inputs>({
     defaultValues: {
-      email: '',
+      email: email_value,
       user_name: '',
     },
     resolver: yupResolver(confirmSchema),
@@ -41,6 +41,7 @@ export const ConfirmCredentialsForm = () => {
           <label htmlFor="user-email">{t('confirmCredentials.email')}</label>
           <input
             type="email"
+            disabled
             {...register('email')}
             className={errors.email ? 'error-input' : ''}
             placeholder={t('confirmCredentials.emailPlaceholder')}
@@ -48,13 +49,8 @@ export const ConfirmCredentialsForm = () => {
           />
           {errors.email && <ErrorMsg>{errors.email.message}</ErrorMsg>}
         </div>
-        <SubmitBtn
-          type="submit"
-          variant={ButtonVariant.Black}
-          disabled={!isDirty || isSubmitting}
-        >
+        <SubmitBtn type="submit" variant={ButtonVariant.Black}>
           {t('confirmCredentials.submitBtn')}
-          {/* {isLoading ? t('loading.text') : t('signIn.submitBtn')} */}
         </SubmitBtn>
       </StyledForm>
     </>
