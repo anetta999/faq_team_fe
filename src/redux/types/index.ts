@@ -6,7 +6,7 @@ export type Response<T> = {
 export type User = {
   name: string;
   email: string;
-  role: string;
+  role?: string;
 };
 
 export type AuthState = {
