@@ -129,7 +129,7 @@ export const SignUpForm = () => {
             {isPasswordShown ? <EyeIcon /> : <EyeCloseIcon />}
           </button>
         </div>
-        {isError && <ErrorMsg>{error.error}</ErrorMsg>}
+        {isError && <ErrorMsg>{error.data.message}</ErrorMsg>}
         <SubmitBtn
           type="submit"
           variant="black"
