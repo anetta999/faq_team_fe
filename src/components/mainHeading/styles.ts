@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Theme } from 'src/styles/Theme';
+import { Theme } from 'src/styles/theme';
 
 export const HeadingInner = styled.div<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.greyish_red};
