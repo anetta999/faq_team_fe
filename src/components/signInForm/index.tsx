@@ -83,7 +83,7 @@ export const SignInForm = () => {
         <PasswordLink to="/restore-password">
           {t('signIn.forgotPassLink')}
         </PasswordLink>
-        {isError && <ErrorMsg>{error.error}</ErrorMsg>}
+        {isError && <ErrorMsg>{error.data.message}</ErrorMsg>}
         <SubmitBtn
           type="submit"
           variant="black"
