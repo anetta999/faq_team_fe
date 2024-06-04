@@ -141,6 +141,7 @@
   "validation": {
     "email": "Email format is incorrect",
     "password": "Password format is incorrect",
+    "passwordMatch": "Passwords entered in the \"Password\" and \"Repeat password\" fields must match",
     "server": "Email or password incorrect",
     "credentials": "Please enter your credentials"
   },
