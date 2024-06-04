@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { Theme } from 'src/styles/Theme';
+import { Theme } from 'src/styles/theme';
 
 export const StyledFooter = styled.footer<{ theme?: Theme }>`
   background-color: ${({ theme }) => theme.colors.greyish_red};
