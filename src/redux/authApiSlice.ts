@@ -19,6 +19,13 @@ const appApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    verifyOtp: builder.mutation<Response<{ is_verified: boolean }>, User>({
+      query: data => ({
+        url: `${USERS_URL}/verify-otp`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
     getUser: builder.query<Response<User[]>, void>({
       query: () => ({
         url: `${CARDS_URL}`,
@@ -27,5 +34,9 @@ const appApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useLoginMutation, useRegistrationMutation, useGetUserQuery } =
-  appApiSlice;
+export const {
+  useLoginMutation,
+  useRegistrationMutation,
+  useGetUserQuery,
+  useVerifyOtpMutation,
+} = appApiSlice;
