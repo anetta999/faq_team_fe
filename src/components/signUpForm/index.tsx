@@ -57,7 +57,7 @@ export const SignUpForm = () => {
   const onSubmit: SubmitHandler<Inputs> = async data => {
     try {
       const { name, email, password } = data;
-      const response = await registration({ user_name: name, email, password });
+      const response = await registration({ full_name: name, email, password });
       console.log(response);
       reset();
       navigate('');

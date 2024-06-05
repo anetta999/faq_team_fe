@@ -22,12 +22,28 @@ export const ImageContainer = styled.div<{ theme?: Theme }>`
 `;
 
 export const FormContainer = styled.div<{ theme?: Theme }>`
-  max-width: 450px;
-  padding: 100px 0 0 100px;
+  width: 40%;
+
+  z-index: 100;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    min-width: 450px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: ${({ theme }) => theme.colors.overlay_black};
+  }
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    min-width: 250px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: ${({ theme }) => theme.colors.overlay_black};
+  }
 `;
 
 export const VerifyTitle = styled.h1<{ theme?: Theme }>`

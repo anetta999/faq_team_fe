@@ -1,45 +1,46 @@
 import styled from '@emotion/styled';
 import { Theme } from 'src/styles/theme';
 import { Link } from 'react-router-dom';
-import { Section } from 'src/components/section';
-import bgImg from '../../assets/images/sign-up.png';
+import { css } from '@emotion/react';
 
-export const SignUpSection = styled(Section)<{ theme?: Theme }>`
-  @media screen and (max-width: 767px) {
-    padding-top: 60px;
-    padding-bottom: 34px;
-  }
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    padding-top: 42px;
-    padding-bottom: 42px;
-    background-image: url(${bgImg});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top left;
-  }
+export const SignUpSection = styled.div<{ theme?: Theme }>`
+  height: 100vh;
+  display: flex;
+`;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
-    height: 100vh;
-    width: 60%;
-    padding-bottom: 207px;
-    background-image: url(${bgImg});
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top left;
-  }
+export const LogoContainer = styled.div<{ img: string; theme?: Theme }>`
+  ${({ img }) => css`
+    background-image: url(${img});
+  `}
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
 
-  ul {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 35px;
-    @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
-      gap: 20px;
-    }
-
-    @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
-      gap: 0px;
-    }
+  width: 60%;
+  height: 100%;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    width: 100%;
+    position: absolute;
+    z-index: 0;
   }
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    display: none;
+  }
+`;
+
+export const FormHeader = styled.div<{ theme?: Theme }>`
+  width: 335px;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 100%;
+  }
+`;
+
+export const ListContainer = styled.ul`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+  margin-top: 20px;
 `;
 
 export const PolicyLink = styled(Link)<{ theme?: Theme }>`
@@ -49,7 +50,7 @@ export const PolicyLink = styled(Link)<{ theme?: Theme }>`
   letter-spacing: -0.01em;
   color: ${({ theme }) => theme.colors.black};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     color: ${({ theme }) => theme.colors.white};
   }
 

@@ -1,34 +1,37 @@
 import { useTranslation } from 'react-i18next';
 import { RestorePassForm } from 'src/components/restorePassForm';
 import { ArrowBackLink } from 'src/components/arrowBackLink';
-import { RestorePassSection } from './style';
-import {
-  SubTitle,
-  Title,
-  FlexWrap,
-  FormWrap,
-  LogoWrap,
-} from '../signInPage/style';
+
+import { SubTitle, Title, LogoWrap } from '../signInPage/style';
 import LogoIcon from 'src/assets/icons/iconLogo';
+import bgImg from 'src/assets/images/restore-pass.png';
+import {
+  FormHeader,
+  LogoContainer,
+  SignUpSection,
+} from 'src/pages/signUpPage/styles.ts';
+import { FormContainer } from 'src/pages/verifyEmailPage/styles.ts';
 
 const RestorePassPage = () => {
   const { t } = useTranslation();
   return (
-    <RestorePassSection>
-      <FlexWrap>
+    <SignUpSection>
+      <LogoContainer img={bgImg}>
         <LogoWrap>
           <LogoIcon width={203} height={56} />
         </LogoWrap>
-        <FormWrap>
+      </LogoContainer>
+      <FormContainer>
+        <FormHeader>
           <Title>
             <ArrowBackLink link={'/faq_team_fe/signin'} />
             {t('restorePassword.title')}
           </Title>
           <SubTitle>{t('restorePassword.subtitle')}</SubTitle>
-          <RestorePassForm />
-        </FormWrap>
-      </FlexWrap>
-    </RestorePassSection>
+        </FormHeader>
+        <RestorePassForm />
+      </FormContainer>
+    </SignUpSection>
   );
 };
 

@@ -76,8 +76,8 @@ export const theme: Theme = {
     main: '250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)',
   },
   breakpoint: {
-    mobile: '375px',
-    tablet: '768px',
+    mobile: '450px',
+    tablet: '880px',
     desktop: '1440px',
   },
   fontSize: {

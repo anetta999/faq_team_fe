@@ -7,9 +7,13 @@ export const StyledForm = styled.form<{ theme?: Theme }>`
   min-width: 335px;
   margin-bottom: 32px;
 
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    min-width: 0;
+    width: 100%;
+  }
+
   div {
     position: relative;
-    height: 80px;
     margin-bottom: 20px;
 
     label {
@@ -21,7 +25,7 @@ export const StyledForm = styled.form<{ theme?: Theme }>`
       letter-spacing: -0.01em;
       color: ${({ theme }) => theme.colors.black};
 
-      @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+      @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
         color: ${({ theme }) => theme.colors.white};
       }
 
@@ -120,7 +124,7 @@ export const PasswordLink = styled(Link)<{ theme?: Theme }>`
   letter-spacing: -0.01em;
   color: ${({ theme }) => theme.colors.black};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     color: ${({ theme }) => theme.colors.white};
   }
 

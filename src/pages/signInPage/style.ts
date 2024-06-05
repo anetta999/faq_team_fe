@@ -15,7 +15,7 @@ export const Title = styled.h1<{ theme?: Theme }>`
   letter-spacing: -0.01em;
   color: ${({ theme }) => theme.colors.black};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     color: ${({ theme }) => theme.colors.white};
   }
 
@@ -30,7 +30,7 @@ export const SubTitle = styled.h2<{ theme?: Theme }>`
   line-height: 1.43;
   color: ${({ theme }) => theme.colors.gray};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     color: ${({ theme }) => theme.colors.white};
   }
 
@@ -49,7 +49,7 @@ export const SignUpLink = styled(Link)<{ theme?: Theme }>`
   letter-spacing: -0.01em;
   color: ${({ theme }) => theme.colors.gray};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     color: ${({ theme }) => theme.colors.white};
   }
 
@@ -65,7 +65,7 @@ export const SignUpLink = styled(Link)<{ theme?: Theme }>`
     letter-spacing: -0.01em;
     color: ${({ theme }) => theme.colors.black};
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
       color: ${({ theme }) => theme.colors.white};
     }
 
@@ -94,9 +94,12 @@ export const Google = styled.button<{ theme?: Theme }>`
   cursor: pointer;
   transition: background-color ${({ theme }) => theme.transition.main};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     background-color: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.black};
+  }
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 100%;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
@@ -125,7 +128,7 @@ export const Text = styled.p<{ theme?: Theme }>`
   letter-spacing: -0.01em;
   color: ${({ theme }) => theme.colors.black};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     color: ${({ theme }) => theme.colors.white};
   }
 
@@ -136,11 +139,11 @@ export const Text = styled.p<{ theme?: Theme }>`
   ::before {
     content: '';
     display: block;
-    width: 140px;
+    width: 45%;
     height: 2px;
     background-color: ${({ theme }) => theme.colors.border};
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
       background-color: ${({ theme }) => theme.colors.white};
     }
 
@@ -152,11 +155,11 @@ export const Text = styled.p<{ theme?: Theme }>`
   ::after {
     content: '';
     display: block;
-    width: 140px;
+    width: 45%;
     height: 2px;
     background-color: ${({ theme }) => theme.colors.border};
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
       background-color: ${({ theme }) => theme.colors.white};
     }
 
@@ -191,13 +194,6 @@ export const SignInSection = styled(Section)<{ theme?: Theme }>`
   }
 `;
 
-export const FlexWrap = styled.div<{ theme?: Theme }>`
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
-    display: flex;
-    justify-content: space-between;
-  }
-`;
-
 export const FormWrap = styled.div<{ theme?: Theme }>`
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
     margin-top: 100px;
@@ -221,7 +217,8 @@ export const FormWrap = styled.div<{ theme?: Theme }>`
 `;
 
 export const LogoWrap = styled.div<{ theme?: Theme }>`
-  @media screen and (max-width: 767px) {
+  margin: 50px 0 0 50px;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     display: none;
   }
 `;

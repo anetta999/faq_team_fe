@@ -17,7 +17,6 @@ const ConfirmCredentialsPage = lazy(
   () => import('./pages/confirmCredentialsPage'),
 );
 
-
 function App() {
   return (
     <>
@@ -29,8 +28,6 @@ function App() {
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/restore-password" element={<RestorePassPage />} />
           <Route path="/new-password" element={<NewPassPage />} />
-
-          <Route path="/restore-password" element={<RestorePasswordPage />} />
 
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-use" element={<TermsOfUsePage />} />
@@ -45,7 +42,6 @@ function App() {
 
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/signin" element={<SignInPage />} />
-
       </Routes>
     </>
   );

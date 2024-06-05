@@ -8,9 +8,13 @@ export const OtpFrom = styled.form<{ theme?: Theme }>`
   align-items: center;
   flex-direction: column;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    position: absolute;
+  min-width: 335px;
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    min-width: 0;
+    width: 100%;
   }
+
   label {
     margin-bottom: 8px;
     font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
@@ -50,7 +54,7 @@ export const OtpFrom = styled.form<{ theme?: Theme }>`
 
 export const InputContainer = styled.div<{ theme?: Theme }>`
   display: flex;
-  gap: 10px;
+  gap: 13px;
 `;
 export const VerifyBtn = styled(Button)`
   width: 100%;
@@ -94,6 +98,13 @@ export const VerifyInfoContainer = styled.div<{ theme?: Theme }>`
   width: 100%;
   margin-top: 10px;
   margin-bottom: 15px;
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    color: ${({ theme }) => theme.colors.white};
+    div {
+      color: inherit;
+    }
+  }
 `;
 
 export const ResendButton = styled.div<{ theme?: Theme }>`

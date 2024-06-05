@@ -3,7 +3,6 @@ import { apiSlice } from './apiSlice';
 const AUTH_URL = 'Authorization';
 const USER_URL = 'users';
 const USERS_URL = 'http://localhost:3000/Authorization';
-const CARDS_URL = '/api/cards';
 const RESTORE_PASS_URL = '/api/cards';
 const NEW_PASS_URL = '/api/cards';
 
@@ -11,7 +10,7 @@ const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
     login: builder.mutation<Response<string>, User>({
       query: data => ({
-        url: `${AUTH_URL}/login`,
+        url: `${AUTH_URL}/sign-in`,
         method: 'POST',
         body: data,
       }),
@@ -27,6 +26,9 @@ const appApiSlice = apiSlice.injectEndpoints({
       query: ({ id, data }) => ({
         url: `${USER_URL}/update/${id}`,
         method: 'PATH',
+        body: data,
+      }),
+    }),
     verifyOtp: builder.mutation<Response<{ is_verified: boolean }>, User>({
       query: data => ({
         url: `${USERS_URL}/verify-otp`,
@@ -60,7 +62,5 @@ export const {
   useLoginMutation,
   useRegistrationMutation,
   useUpdateMutation,
-  useGetUserQuery,
-  useGetUserQuery,
   useVerifyOtpMutation,
 } = appApiSlice;
