@@ -1,6 +1,6 @@
 import { Response, User } from 'src/redux/types';
 import { apiSlice } from './apiSlice';
-const USERS_URL = '/api/user';
+const USERS_URL = 'http://localhost:3000/Authorization';
 const CARDS_URL = '/api/cards';
 
 const appApiSlice = apiSlice.injectEndpoints({
@@ -14,7 +14,14 @@ const appApiSlice = apiSlice.injectEndpoints({
     }),
     registration: builder.mutation<Response<void>, User>({
       query: data => ({
-        url: `${USERS_URL}/register`,
+        url: `${USERS_URL}/sign-up`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    verifyOtp: builder.mutation<Response<{ is_verified: boolean }>, User>({
+      query: data => ({
+        url: `${USERS_URL}/verify-otp`,
         method: 'POST',
         body: data,
       }),
@@ -27,5 +34,9 @@ const appApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useLoginMutation, useRegistrationMutation, useGetUserQuery } =
-  appApiSlice;
+export const {
+  useLoginMutation,
+  useRegistrationMutation,
+  useGetUserQuery,
+  useVerifyOtpMutation,
+} = appApiSlice;
