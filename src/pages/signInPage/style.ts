@@ -76,6 +76,7 @@ export const SignUpLink = styled(Link)<{ theme?: Theme }>`
 `;
 
 export const Google = styled.button<{ theme?: Theme }>`
+  margin-bottom: 20px;
   width: 335px;
   padding: 16px 16px;
   display: inline-flex;
@@ -180,6 +181,8 @@ export const SignInSection = styled(Section)<{ theme?: Theme }>`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
+    height: 100vh;
+    width: 60%;
     padding-bottom: 207px;
     background-image: url(${bgImg});
     background-repeat: no-repeat;

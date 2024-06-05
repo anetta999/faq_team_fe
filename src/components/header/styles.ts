@@ -1,4 +1,4 @@
-import { Theme } from 'src/styles/Theme';
+import { Theme } from 'src/styles/theme';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 

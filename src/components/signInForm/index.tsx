@@ -1,6 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { Inputs } from './types';
 import { StyledForm, PasswordLink, SubmitBtn, ErrorMsg } from './styles';
@@ -9,23 +8,33 @@ import EyeIcon from 'src/assets/icons/iconEye';
 import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
 import { useLoginMutation } from 'src/redux/authApiSlice';
 
-const signInSchema = yup
-  .object()
-  .shape({
-    email: yup
-      .string()
-      .email('Email format is incorrect')
-      .required('Please enter your credentials'),
-    password: yup
-      .string()
-      .min(8, 'Password format is incorrect')
-      .required('Please enter your credentials'),
-  })
-  .required();
+import { useSignInHook } from 'components/signInForm/hooks/signInHook.ts';
+
+import { useAppDispatch } from 'src/redux/hooks';
+import { setToken } from 'src/redux/auth/authSlice';
+
+
+// const signInSchema = yup
+//   .object()
+//   .shape({
+//     email: yup
+//       .string()
+//       .email('Email format is incorrect')
+//       .required('Please enter your credentials'),
+//     password: yup
+//       .string()
+//       .min(8, 'Password format is incorrect')
+//       .required('Please enter your credentials'),
+//   })
+//   .required();
 
 export const SignInForm = () => {
-  const [login, { isLoading, isError }] = useLoginMutation();
+  const [login, { isLoading, isError, error }] = useLoginMutation();
+  const dispatch = useAppDispatch();
+
   const { t } = useTranslation();
+  const singInSchema = useSignInHook();
+
   const {
     register,
     handleSubmit,
@@ -35,11 +44,12 @@ export const SignInForm = () => {
       email: '',
       password: '',
     },
-    resolver: yupResolver(signInSchema),
+    resolver: yupResolver(singInSchema),
   });
 
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    login(data);
+  const onSubmit: SubmitHandler<Inputs> = async data => {
+    const response = await login(data);
+    dispatch(setToken(response.token));
   };
 
   const [isPasswordShown, setPasswordShown] = useState<boolean>(false);
@@ -78,7 +88,7 @@ export const SignInForm = () => {
         <PasswordLink to="/restore-password">
           {t('signIn.forgotPassLink')}
         </PasswordLink>
-        {isError && <ErrorMsg>{t('validation.server')}</ErrorMsg>}
+        {isError && <ErrorMsg>{error.data.message}</ErrorMsg>}
         <SubmitBtn
           type="submit"
           variant="black"

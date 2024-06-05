@@ -4,9 +4,11 @@ export type Response<T> = {
 };
 
 export type User = {
-  name: string;
-  email: string;
-  role: string;
+  name?: string;
+  email?: string;
+  role?: string;
+  otp_code?: string;
+  id?: string;
 };
 
 export type AuthState = {

@@ -8,6 +8,7 @@ import { useState } from 'react';
 import EyeIcon from 'src/assets/icons/iconEye';
 import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
 import { useRegistrationMutation } from 'src/redux/authApiSlice';
+import { useNavigate } from 'react-router-dom';
 
 const signUpSchema = yup
   .object()
@@ -34,11 +35,14 @@ const signUpSchema = yup
   .required();
 
 export const SignUpForm = () => {
-  const [registration, { isLoading, isError }] = useRegistrationMutation();
+  const [registration, { isLoading, isError, error }] =
+    useRegistrationMutation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isDirty, isSubmitting },
   } = useForm<Inputs>({
     defaultValues: {
@@ -50,8 +54,16 @@ export const SignUpForm = () => {
     resolver: yupResolver(signUpSchema),
   });
 
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    registration(data);
+  const onSubmit: SubmitHandler<Inputs> = async data => {
+    try {
+      const { name, email, password } = data;
+      const response = await registration({ user_name: name, email, password });
+      console.log(response);
+      reset();
+      navigate('');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const [isPasswordShown, setPasswordShown] = useState<boolean>(false);
@@ -59,6 +71,7 @@ export const SignUpForm = () => {
   const handlePassword = () => {
     setPasswordShown(!isPasswordShown);
   };
+
   return (
     <>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -116,7 +129,7 @@ export const SignUpForm = () => {
             {isPasswordShown ? <EyeIcon /> : <EyeCloseIcon />}
           </button>
         </div>
-        {isError && <ErrorMsg>{t('validation.server')}</ErrorMsg>}
+        {isError && <ErrorMsg>{error.data.message}</ErrorMsg>}
         <SubmitBtn
           type="submit"
           variant="black"
