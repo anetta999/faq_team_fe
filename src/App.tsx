@@ -13,6 +13,9 @@ const NewPassPage = lazy(() => import('./pages/newPassPage'));
 const VerifyEmailPage = lazy(() => import('./pages/verifyEmailPage'));
 
 const SuperAdminPage = lazy(() => import('./pages/superAdminPage'));
+const ConfirmCredentialsPage = lazy(
+  () => import('./pages/confirmCredentialsPage'),
+);
 
 
 function App() {
@@ -32,6 +35,10 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-use" element={<TermsOfUsePage />} />
           <Route path="/super-admin" element={<SuperAdminPage />} />
+          <Route
+            path="/confirm-credentials"
+            element={<ConfirmCredentialsPage />}
+          />
         </Route>
 
         <Route path="/verify" element={<VerifyEmailPage />} />

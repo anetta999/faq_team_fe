@@ -96,6 +96,14 @@
     "policyLink": "Privacy Policy",
     "termsLink": "Terms of Use"
   },
+  "confirmCredentials": {
+    "title": "Confirm Your Credentials",
+    "name": "Name*",
+    "namePlaceholder":"Enter your name",
+    "email": "Email*",
+    "emailPlaceholder": "your_email@gmail.com",
+    "submitBtn": "Confirm"
+  },
 
   "restorePassword": {
     "title": "Restore password",
