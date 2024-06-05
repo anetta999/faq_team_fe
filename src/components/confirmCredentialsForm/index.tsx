@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
+import { useUpdateMutation } from 'src/redux/authApiSlice';
 import { StyledForm, SubmitBtn, ErrorMsg } from './styles';
 import { Inputs, Props } from './types';
 import { confirmSchema } from './validation';
@@ -8,6 +9,7 @@ import { ButtonVariant } from '../button/types';
 
 export const ConfirmCredentialsForm = ({ email_value }: Props) => {
   const { t } = useTranslation();
+  const [update, { isLoading }] = useUpdateMutation();
   const {
     register,
     handleSubmit,
@@ -19,8 +21,12 @@ export const ConfirmCredentialsForm = ({ email_value }: Props) => {
     },
     resolver: yupResolver(confirmSchema),
   });
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async data => {
+    try {
+      await update({ id: 'id', data }).unwrap();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -50,7 +56,7 @@ export const ConfirmCredentialsForm = ({ email_value }: Props) => {
           {errors.email && <ErrorMsg>{errors.email.message}</ErrorMsg>}
         </div>
         <SubmitBtn type="submit" variant={ButtonVariant.Black}>
-          {t('confirmCredentials.submitBtn')}
+          {isLoading ? t('loading.text') : t('confirmCredentials.submitBtn')}
         </SubmitBtn>
       </StyledForm>
     </>

@@ -8,6 +8,9 @@ const RestorePasswordPage = lazy(() => import('./pages/restorePasswordPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/privacyPolicyPage'));
 const TermsOfUsePage = lazy(() => import('./pages/termsOfUsePage'));
 const SuperAdminPage = lazy(() => import('./pages/superAdminPage'));
+const ConfirmCredentialsPage = lazy(
+  () => import('./pages/confirmCredentialsPage'),
+);
 
 function App() {
   return (
@@ -19,6 +22,10 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-use" element={<TermsOfUsePage />} />
           <Route path="/super-admin" element={<SuperAdminPage />} />
+          <Route
+            path="/confirm-credentials"
+            element={<ConfirmCredentialsPage />}
+          />
         </Route>
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/signin" element={<SignInPage />} />
