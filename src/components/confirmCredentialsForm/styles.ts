@@ -18,6 +18,15 @@ export const StyledForm = styled.form<{ theme?: Theme }>`
       line-height: 1.43;
       letter-spacing: -0.01em;
       color: ${({ theme }) => theme.colors.black};
+
+      @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+        color: ${({ theme }) => theme.colors.white};
+      }
+
+      @media screen and (min-width: ${({ theme }) =>
+          theme.breakpoint.desktop}) {
+        color: ${({ theme }) => theme.colors.black};
+      }
     }
 
     input {
@@ -64,7 +73,7 @@ export const SubmitBtn = styled(Button)`
   cursor: pointer;
   transition: background-color ${({ theme }) => theme.transition.main};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     background-color: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.black};
   }

@@ -1,29 +1,35 @@
 import { useTranslation } from 'react-i18next';
 import LogoIcon from 'src/assets/icons/iconLogo';
 import { NewPassForm } from 'src/components/newPassForm';
-import { NewPassSection, NewPassFormWrap } from './style';
 import { ArrowBackLink } from 'src/components/arrowBackLink';
-import { FlexWrap, LogoWrap, Title, SubTitle } from '../signInPage/style';
+import { LogoWrap, Title, SubTitle } from '../signInPage/style';
+import {
+  FormHeader,
+  LogoContainer,
+  SignUpSection,
+} from 'src/pages/signUpPage/styles.ts';
+import bgImg from 'src/assets/images/new-pass.png';
+import { FormContainer } from 'src/pages/verifyEmailPage/styles.ts';
 const SignUpPage = () => {
   const { t } = useTranslation();
   return (
-    <NewPassSection>
-      <FlexWrap>
+    <SignUpSection>
+      <LogoContainer img={bgImg}>
         <LogoWrap>
           <LogoIcon width={203} height={56} />
         </LogoWrap>
-        <NewPassFormWrap>
-          <div>
-            <Title>
-              <ArrowBackLink link={'/faq_team_fe/signin'} />
-              {t('restorePasswordSignIn.title')}
-            </Title>
-            <SubTitle>{t('restorePasswordSignIn.subtitle')}</SubTitle>
-            <NewPassForm />
-          </div>
-        </NewPassFormWrap>
-      </FlexWrap>
-    </NewPassSection>
+      </LogoContainer>
+      <FormContainer>
+        <FormHeader>
+          <Title>
+            <ArrowBackLink link={'/faq_team_fe/signin'} />
+            {t('restorePasswordSignIn.title')}
+          </Title>
+          <SubTitle>{t('restorePasswordSignIn.subtitle')}</SubTitle>
+        </FormHeader>
+        <NewPassForm />
+      </FormContainer>
+    </SignUpSection>
   );
 };
 

@@ -21,14 +21,28 @@ export const StyledImg = styled.img`
   width: 100%;
   height: 100vh;
 `;
-export const StyledFormContainer = styled.div`
+export const StyledFormContainer = styled.div<{ theme?: Theme }>`
+  width: 40%;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-right: auto;
-  padding: 0 50px 0 0;
-  flex-grow: 1;
+  z-index: 100;
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    min-width: 450px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: ${({ theme }) => theme.colors.overlay_black};
+  }
+  @media screen and (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    min-width: 250px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: ${({ theme }) => theme.colors.overlay_black};
+  }
 `;
 export const StyledContainerFluid = styled.div`
   max-width: 100%;
