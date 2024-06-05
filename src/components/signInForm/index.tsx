@@ -7,7 +7,12 @@ import { useState } from 'react';
 import EyeIcon from 'src/assets/icons/iconEye';
 import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
 import { useLoginMutation } from 'src/redux/authApiSlice';
+
 import { useSignInHook } from 'components/signInForm/hooks/signInHook.ts';
+
+import { useAppDispatch } from 'src/redux/hooks';
+import { setToken } from 'src/redux/auth/authSlice';
+
 
 // const signInSchema = yup
 //   .object()
@@ -24,7 +29,9 @@ import { useSignInHook } from 'components/signInForm/hooks/signInHook.ts';
 //   .required();
 
 export const SignInForm = () => {
-  const [login, { isLoading, isError }] = useLoginMutation();
+  const [login, { isLoading, isError, error }] = useLoginMutation();
+  const dispatch = useAppDispatch();
+
   const { t } = useTranslation();
   const singInSchema = useSignInHook();
 
@@ -40,8 +47,9 @@ export const SignInForm = () => {
     resolver: yupResolver(singInSchema),
   });
 
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    login(data);
+  const onSubmit: SubmitHandler<Inputs> = async data => {
+    const response = await login(data);
+    dispatch(setToken(response.token));
   };
 
   const [isPasswordShown, setPasswordShown] = useState<boolean>(false);
@@ -80,7 +88,7 @@ export const SignInForm = () => {
         <PasswordLink to="/restore-password">
           {t('signIn.forgotPassLink')}
         </PasswordLink>
-        {isError && <ErrorMsg>{t('validation.server')}</ErrorMsg>}
+        {isError && <ErrorMsg>{error.data.message}</ErrorMsg>}
         <SubmitBtn
           type="submit"
           variant="black"

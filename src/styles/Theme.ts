@@ -26,6 +26,7 @@ type FontSize = {
   lg: string;
   extraLg: string;
   extraSm: string;
+  xxl: string;
 };
 
 type FontWeight = {
@@ -85,6 +86,7 @@ export const theme: Theme = {
     md: '16px',
     lg: '18px',
     extraLg: '28px',
+    xxl: '40px',
   },
   fontWeight: {
     regular: '400',
