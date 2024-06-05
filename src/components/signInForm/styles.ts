@@ -79,7 +79,6 @@ export const StyledForm = styled.form<{ theme?: Theme }>`
 
 export const SubmitBtn = styled(Button)`
   width: 100%;
-  padding: 16px 141px;
 
   font-family: ${({ theme }) => theme.fontNames.playfairDisplay};
   border: none;

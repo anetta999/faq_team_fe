@@ -24,10 +24,10 @@
   },
 
   "verificationEmail": {
-    "title": "Verify your email",
+    "title": "Verification email",
     "subtitle": "We have sent an OTP verification code to your email, please enter it here",
     "code": "Code",
-    "expired": "will expire in 00:55",
+    "expired": "will expire in",
     "resend": "Send Again",
     "submitBtn": "Verify"
   },
@@ -149,6 +149,7 @@
   "validation": {
     "email": "Email format is incorrect",
     "password": "Password format is incorrect",
+    "passwordMatch": "Passwords entered in the \"Password\" and \"Repeat password\" fields must match",
     "server": "Email or password incorrect",
     "credentials": "Please enter your credentials"
   },
