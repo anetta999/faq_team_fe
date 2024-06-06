@@ -6,12 +6,12 @@ import {
   LogoContainer,
   SignUpSection,
 } from 'src/pages/signUpPage/styles.ts';
-import bgImg from 'src/assets/images/verification.png';
+import bgImg from 'src/assets/images/sign-in.png';
 import { SubTitle, Title } from 'src/pages/signInPage/style.ts';
 import { ArrowBackLink } from 'components/arrowBackLink';
 import { useAppSelector } from 'src/redux/hooks.ts';
 
-export const VerifyEmailPage = () => {
+export const VerifyOtpPage = () => {
   const { t } = useTranslation();
   const user = useAppSelector(state => state.auth.user);
   return (
@@ -20,13 +20,13 @@ export const VerifyEmailPage = () => {
       <FormContainer>
         <FormHeader>
           <ArrowBackLink link={'/faq_team_fe/signin'} />
-          <Title>{t('verificationEmail.title')}</Title>
-          <SubTitle>{t('verificationEmail.subtitle')}</SubTitle>
+          <Title>{t('enterCode.title')}</Title>
+          <SubTitle>{t('enterCode.subtitle')}</SubTitle>
         </FormHeader>
-        <OtpForm email={user.email} action={'registr'} />
+        <OtpForm email={user.email} action={'newPass'} />
       </FormContainer>
     </SignUpSection>
   );
 };
 
-export default VerifyEmailPage;
+export default VerifyOtpPage;

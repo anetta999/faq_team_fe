@@ -4,8 +4,9 @@ export type Response<T> = {
 };
 
 export type User = {
-  name?: string;
+  full_name?: string;
   email?: string;
+  password?: string;
   role?: string;
   otp_code?: string;
   id?: string;
@@ -28,4 +29,12 @@ export type UpdateUser = {
   cloth_size?: string;
   jeans_size?: string;
   shoes_size?: number;
+};
+
+export type GoogleUser = {
+  accessToken: string;
+  authInfo: string;
+  email?: string;
+  full_name?: string;
+  is_verified: boolean;
 };

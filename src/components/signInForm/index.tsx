@@ -6,13 +6,16 @@ import { StyledForm, PasswordLink, SubmitBtn, ErrorMsg } from './styles';
 import { useState } from 'react';
 import EyeIcon from 'src/assets/icons/iconEye';
 import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
-import { useLoginMutation } from 'src/redux/authApiSlice';
+import {
+  useLoginMutation,
+  useRestorePassMutation,
+} from 'src/redux/authApiSlice';
 
 import { useSignInHook } from 'components/signInForm/hooks/signInHook.ts';
 
 import { useAppDispatch } from 'src/redux/hooks';
 import { setToken } from 'src/redux/auth/authSlice';
-
+import { useNavigate } from 'react-router-dom';
 
 // const signInSchema = yup
 //   .object()
@@ -30,10 +33,13 @@ import { setToken } from 'src/redux/auth/authSlice';
 
 export const SignInForm = () => {
   const [login, { isLoading, isError, error }] = useLoginMutation();
+  const [sendOtp] = useRestorePassMutation();
+
   const dispatch = useAppDispatch();
 
   const { t } = useTranslation();
   const singInSchema = useSignInHook();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -48,8 +54,20 @@ export const SignInForm = () => {
   });
 
   const onSubmit: SubmitHandler<Inputs> = async data => {
-    const response = await login(data);
-    dispatch(setToken(response.token));
+    try {
+      const response = await login(data).unwrap();
+
+      if (!response?.is_verified) {
+        await sendOtp(data.email);
+        navigate('/verify');
+      }
+      console.log(response?.token);
+      dispatch(setToken(response?.token));
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+      return;
+    }
   };
 
   const [isPasswordShown, setPasswordShown] = useState<boolean>(false);

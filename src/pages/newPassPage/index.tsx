@@ -10,8 +10,10 @@ import {
 } from 'src/pages/signUpPage/styles.ts';
 import bgImg from 'src/assets/images/new-pass.png';
 import { FormContainer } from 'src/pages/verifyEmailPage/styles.ts';
+import { useAppSelector } from 'src/redux/hooks.ts';
 const SignUpPage = () => {
   const { t } = useTranslation();
+  const user = useAppSelector(state => state.auth.user);
   return (
     <SignUpSection>
       <LogoContainer img={bgImg}>
@@ -27,7 +29,7 @@ const SignUpPage = () => {
           </Title>
           <SubTitle>{t('restorePasswordSignIn.subtitle')}</SubTitle>
         </FormHeader>
-        <NewPassForm />
+        <NewPassForm email={user.email} />
       </FormContainer>
     </SignUpSection>
   );

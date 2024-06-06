@@ -1,10 +1,8 @@
-import { Response, UpdateUser, User } from 'src/redux/types';
+import { GoogleUser, Response, UpdateUser, User } from 'src/redux/types';
 import { apiSlice } from './apiSlice';
 const AUTH_URL = 'Authorization';
 const USER_URL = 'users';
-const USERS_URL = 'http://localhost:3000/Authorization';
-const RESTORE_PASS_URL = '/api/cards';
-const NEW_PASS_URL = '/api/cards';
+const GOOGLE_URL = 'google';
 
 const appApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
@@ -31,28 +29,36 @@ const appApiSlice = apiSlice.injectEndpoints({
     }),
     verifyOtp: builder.mutation<Response<{ is_verified: boolean }>, User>({
       query: data => ({
-        url: `${USERS_URL}/verify-otp`,
+        url: `${USER_URL}/verify-otp`,
         method: 'POST',
         body: data,
       }),
     }),
     restorePass: builder.mutation<Response<void>, User>({
       query: data => ({
-        url: `${RESTORE_PASS_URL}/restorePass`,
+        url: `${USER_URL}/user/send-otp`,
         method: 'POST',
         body: data,
       }),
     }),
     newPass: builder.mutation<Response<void>, User>({
       query: data => ({
-        url: `${NEW_PASS_URL}/newPass`,
+        url: `${USER_URL}/set-new-pass`,
         method: 'POST',
         body: data,
       }),
     }),
-    getUser: builder.query<Response<User[]>, void>({
+    getUser: builder.mutation<Response<User>, { token: string }>({
+      query: data => ({
+        url: `${USER_URL}/user`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    googleVerify: builder.mutation<GoogleUser, void>({
       query: () => ({
-        url: `${USER_URL}`,
+        url: `${GOOGLE_URL}`,
+        method: 'GET',
       }),
     }),
   }),
@@ -63,4 +69,8 @@ export const {
   useRegistrationMutation,
   useUpdateMutation,
   useVerifyOtpMutation,
+  useGoogleVerifyMutation,
+  useGetUserMutation,
+  useRestorePassMutation,
+  useNewPassMutation,
 } = appApiSlice;

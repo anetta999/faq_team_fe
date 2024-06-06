@@ -7,11 +7,12 @@ import { StyledForm, SubmitBtn, ErrorMsg } from '../signInForm/styles';
 import { useState } from 'react';
 import EyeIcon from 'src/assets/icons/iconEye';
 import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
-import { useRegistrationMutation } from 'src/redux/authApiSlice';
+import { useNewPassMutation } from 'src/redux/authApiSlice.ts';
 
-export const NewPassForm = () => {
-  const [newPass, { isLoading, isError }] = useRegistrationMutation();
+export const NewPassForm = ({ email }) => {
   const { t } = useTranslation();
+
+  const [newPass, { isError, isLoading }] = useNewPassMutation();
   const signUpSchema = yup
     .object()
     .shape({
@@ -42,8 +43,13 @@ export const NewPassForm = () => {
     resolver: yupResolver(signUpSchema),
   });
 
-  const onSubmit: SubmitHandler<NewPass> = data => {
-    newPass(data);
+  const onSubmit: SubmitHandler<NewPass> = async data => {
+    try {
+      await newPass({ password: data.password, email });
+      console.log('Password updated');
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const [isPasswordShown, setPasswordShown] = useState<boolean>(false);

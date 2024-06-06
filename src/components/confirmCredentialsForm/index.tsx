@@ -16,8 +16,8 @@ export const ConfirmCredentialsForm = ({ email_value }: Props) => {
     formState: { errors },
   } = useForm<Inputs>({
     defaultValues: {
-      email: email_value,
-      user_name: '',
+      email: `${email_value}`,
+      user_name: 'hjfvgjhb',
     },
     resolver: yupResolver(confirmSchema),
   });

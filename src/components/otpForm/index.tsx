@@ -6,15 +6,19 @@ import {
   VerifyBtn,
   VerifyInfoContainer,
 } from 'components/otpForm/styles.ts';
-import { useVerifyOtpMutation } from 'src/redux/authApiSlice.ts';
+import {
+  useRestorePassMutation,
+  useVerifyOtpMutation,
+} from 'src/redux/authApiSlice.ts';
 import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Inputs } from 'components/signUpForm/types.tsx';
 import { useEffect, useState } from 'react';
 
-export const OtpForm = () => {
+export const OtpForm = ({ email, action }) => {
   const { t } = useTranslation();
   const [verifyOtp] = useVerifyOtpMutation();
+  const [sendOtp] = useRestorePassMutation();
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm<Inputs>({
     defaultValues: {
@@ -32,16 +36,37 @@ export const OtpForm = () => {
       }
       const response = await verifyOtp({
         otp_code: otpCode,
-        id: 'dadfdc5d-8b83-42ad-bbb0-5b5f5cd9593e',
+        email,
       });
-      console.log(response);
-      navigate('');
+      if (!response) {
+        throw new Error();
+        return;
+      }
+      if (action === 'registr') {
+        navigate('/');
+      } else {
+        navigate('/new-password');
+      }
     } catch (error) {
       console.log(error);
     }
   };
+
+  const resetTimer = () => {
+    setTimer(55);
+  };
+
+  const resend = async () => {
+    await sendOtp(email);
+    resetTimer();
+  };
+
   useEffect(() => {
-    timer > 0 && setTimeout(() => setTimer(timer - 1), 1000);
+    if (timer > 0) {
+      const timeoutId = setTimeout(() => setTimer(timer - 1), 1000);
+      // Cleanup function to clear the timeout when the component unmounts
+      return () => clearTimeout(timeoutId);
+    }
   }, [timer]);
   return (
     <OtpFrom onSubmit={handleSubmit(checkOtp)}>
@@ -61,7 +86,9 @@ export const OtpForm = () => {
         <div>
           {t('verificationEmail.expired')} {timer}
         </div>
-        <ResendButton>{t('verificationEmail.resend')}</ResendButton>
+        <ResendButton onClick={resend}>
+          {t('verificationEmail.resend')}
+        </ResendButton>
       </VerifyInfoContainer>
       <VerifyBtn type={'submit'} variant="black">
         {t('verificationEmail.submitBtn')}

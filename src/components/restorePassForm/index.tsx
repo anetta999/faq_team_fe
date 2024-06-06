@@ -4,11 +4,17 @@ import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { RestorePass } from '../signInForm/types';
 import { StyledForm, SubmitBtn, ErrorMsg } from '../signInForm/styles';
-import { useLoginMutation } from 'src/redux/authApiSlice';
+import { useRestorePassMutation } from 'src/redux/authApiSlice';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from 'src/redux/hooks.ts';
+import { setEmail } from 'src/redux/auth/authSlice.ts';
 
 export const RestorePassForm = () => {
-  const [restorePass, { isLoading, isError }] = useLoginMutation();
+  const [sendOtp, { isError, isLoading }] = useRestorePassMutation();
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const signInSchema = yup
     .object()
     .shape({
@@ -29,8 +35,10 @@ export const RestorePassForm = () => {
     resolver: yupResolver(signInSchema),
   });
 
-  const onSubmit: SubmitHandler<RestorePass> = data => {
-    restorePass(data);
+  const onSubmit: SubmitHandler<RestorePass> = async data => {
+    await sendOtp(data);
+    dispatch(setEmail(data.email));
+    navigate('/verify-otp');
   };
 
   return (

@@ -9,6 +9,8 @@ import EyeIcon from 'src/assets/icons/iconEye';
 import EyeCloseIcon from 'src/assets/icons/iconEyeClose';
 import { useRegistrationMutation } from 'src/redux/authApiSlice';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from 'src/redux/hooks.ts';
+import { setEmail } from 'src/redux/auth/authSlice.ts';
 
 const signUpSchema = yup
   .object()
@@ -39,6 +41,7 @@ export const SignUpForm = () => {
     useRegistrationMutation();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -58,9 +61,9 @@ export const SignUpForm = () => {
     try {
       const { name, email, password } = data;
       const response = await registration({ full_name: name, email, password });
-      console.log(response);
+      dispatch(setEmail(response?.data?.email));
       reset();
-      navigate('');
+      navigate('/verify');
     } catch (error) {
       console.log(error);
     }

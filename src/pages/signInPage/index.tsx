@@ -16,6 +16,11 @@ import { ArrowBackLink } from 'components/arrowBackLink';
 
 const SignInPage = () => {
   const { t } = useTranslation();
+
+  const verifyGoogle = async () => {
+    window.location.href = 'http://localhost:3000/google';
+  };
+
   return (
     <SignUpSection>
       <LogoContainer img={bgImg}>
@@ -30,7 +35,7 @@ const SignInPage = () => {
             {t('signIn.title')}
           </Title>
           <SubTitle>{t('signIn.subtitle')}</SubTitle>
-          <Google type="button">
+          <Google type="button" onClick={verifyGoogle}>
             <GoogleIcon />
             {t('signIn.google')}
           </Google>

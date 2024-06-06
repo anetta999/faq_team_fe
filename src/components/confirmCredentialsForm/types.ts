@@ -4,4 +4,6 @@ export type Inputs = {
 };
 export type Props = {
   email_value: string;
+  full_name: string;
+  id: string;
 };

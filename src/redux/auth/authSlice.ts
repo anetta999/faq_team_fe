@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { AuthState } from 'src/redux/types';
 
 const initialState: AuthState = {
-  user: { name: '', email: '', role: '' },
+  user: { full_name: '', email: '', role: '' },
   token: '',
 };
 
@@ -10,6 +10,9 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    setEmail: (state, action: PayloadAction<string>) => {
+      state.user.email = action.payload;
+    },
     setToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
     },
@@ -18,5 +21,5 @@ const authSlice = createSlice({
     },
   },
 });
-export const { setToken, clearToken } = authSlice.actions;
+export const { setToken, clearToken, setEmail } = authSlice.actions;
 export const authReducer = authSlice.reducer;

@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { SharedLayout } from './pages/sharedLayout';
+import VerifyOtpPage from 'src/pages/verifyOtpPage';
 
 const HomePage = lazy(() => import('./pages/homePage/index'));
 const SignUpPage = lazy(() => import('./pages/signUpPage'));
@@ -39,6 +40,7 @@ function App() {
         </Route>
 
         <Route path="/verify" element={<VerifyEmailPage />} />
+        <Route path="/verify-otp" element={<VerifyOtpPage />} />
 
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/signin" element={<SignInPage />} />
