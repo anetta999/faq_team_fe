@@ -7,6 +7,6 @@ export const confirmSchema = yup
       .string()
       .email('Email format is incorrect')
       .required('Please enter your credentials'),
-    user_name: yup.string().required('Please enter your name'),
+    full_name: yup.string().required('Please enter your name'),
   })
   .required();

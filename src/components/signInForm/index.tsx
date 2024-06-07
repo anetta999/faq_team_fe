@@ -56,14 +56,15 @@ export const SignInForm = () => {
   const onSubmit: SubmitHandler<Inputs> = async data => {
     try {
       const response = await login(data).unwrap();
-
+      console.log(data);
       if (!response?.is_verified) {
         await sendOtp(data.email);
         navigate('/verify');
+      } else {
+        console.log(response?.token);
+        dispatch(setToken(response?.token));
+        navigate('/');
       }
-      console.log(response?.token);
-      dispatch(setToken(response?.token));
-      navigate('/');
     } catch (error) {
       console.log(error);
       return;

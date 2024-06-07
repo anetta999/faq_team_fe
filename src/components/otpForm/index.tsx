@@ -31,16 +31,18 @@ export const OtpForm = ({ email, action }) => {
   const checkOtp: SubmitHandler<Inputs> = async data => {
     try {
       let otpCode = '';
+      console.log(data);
       for (const datum in data) {
         otpCode += data[datum];
       }
+      console.log(otpCode);
       const response = await verifyOtp({
         otp_code: otpCode,
         email,
       });
-      if (!response) {
+      console.log(response);
+      if (response.error) {
         throw new Error();
-        return;
       }
       if (action === 'registr') {
         navigate('/');
@@ -78,6 +80,7 @@ export const OtpForm = ({ email, action }) => {
               type={'text'}
               placeholder={'1'}
               {...register(`otpInput${index}`)}
+              maxLength={1}
             />
           );
         })}

@@ -93,11 +93,6 @@ export const SubmitBtn = styled(Button)`
   cursor: pointer;
   transition: background-color ${({ theme }) => theme.transition.main};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.black};
-  }
-
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
     background-color: ${({ theme }) => theme.colors.black};
     color: ${({ theme }) => theme.colors.white};

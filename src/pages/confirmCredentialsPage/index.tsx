@@ -22,12 +22,13 @@ const ConfirmCredentialsPage = () => {
   const getInfo = async () => {
     if (token) {
       const data = await getUser({ token }).unwrap();
+      console.log(data);
       setUser({ ...data });
     }
   };
   useEffect(() => {
     getInfo();
-  });
+  }, []);
 
   return (
     <SignUpSection>

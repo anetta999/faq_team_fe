@@ -23,7 +23,7 @@ const appApiSlice = apiSlice.injectEndpoints({
     update: builder.mutation<Response<void>, { id: string; data: UpdateUser }>({
       query: ({ id, data }) => ({
         url: `${USER_URL}/update/${id}`,
-        method: 'PATH',
+        method: 'PATCH',
         body: data,
       }),
     }),
